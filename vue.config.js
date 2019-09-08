@@ -1,3 +1,3 @@
 module.exports = {
-    publicPath: '<study-system>'
+    publicPath: '<study-system-with-vue>'
 }
