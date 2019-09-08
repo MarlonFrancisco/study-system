@@ -10,7 +10,7 @@
 
         <v-card-actions>
             <v-btn color="transparent" class="mx-auto text-capitalize" elevation="0">
-                <router-link to="/cadastro">Ainda não possuo uma conta</router-link>
+                <router-link to="/study-system-with-vue/cadastro">Ainda não possuo uma conta</router-link>
             </v-btn>
         </v-card-actions>
 
