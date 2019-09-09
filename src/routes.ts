@@ -2,6 +2,7 @@ import Login from './screens/Login/Login.vue';
 import NotFound from './screens/NotFound/NotFound.vue';
 import Cadastro from './screens/Cadastro/Cadastro.vue';
 import Home from './screens/Home/Home.vue';
+import MyAccount from './screens/MyAccount/MyAccount.vue';
 
 export const routes = [
     {
@@ -17,6 +18,11 @@ export const routes = [
     {
         path: '/study-system-with-vue/home',
         component: Home,
+        meta: { authRequired: true },
+    },
+    {
+        path: '/study-system-with-vue/home/myaccount',
+        component: MyAccount,
         meta: { authRequired: true },
     },
     {

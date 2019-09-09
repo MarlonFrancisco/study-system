@@ -34,6 +34,7 @@ export default class Login extends Vue {
     public stateForgotPassword = false;
     private async save(body: Login) {
         console.log(body);
+        this.$router.push('/study-system-with-vue/home');
     }
 
     private async recover(body: string) {

@@ -12,7 +12,9 @@
 
                 <v-list>
                     <v-list-item link>
-                        <v-list-item-title>My account</v-list-item-title>
+                        <router-link to="/study-system-with-vue/home/myaccount">
+                            <v-list-item-title>My account</v-list-item-title>
+                        </router-link>
                     </v-list-item>
                     <v-list-item link @click="endSession">
                         <v-list-item-title>Logout</v-list-item-title>
