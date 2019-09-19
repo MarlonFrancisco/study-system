@@ -13,7 +13,7 @@
         <v-divider></v-divider>
 
         <v-list>
-            <v-list-item link v-for="(item, index) of itemsMenu" :key="index">
+            <v-list-item link v-for="(item, index) of itemsMenu" :key="index" @click="changePage(item.title)">
                 <v-list-item-icon>
                     <v-icon>{{ item.icon }}</v-icon>
                 </v-list-item-icon>
@@ -38,6 +38,14 @@ interface IItem {
 export default class Navigation extends Vue {
     @Prop(Boolean) public drawer = false;
     @Prop() public items!: IItem[];
+
+    private changePage(page: string) {
+        this.$router.push(`/study-system-with-vue/${this.tratamentSelectPage(page)}`);
+    }
+
+    private tratamentSelectPage(page: string): string {
+        return page.replace(' ', '').toLowerCase();
+    }
 
     get itemsMenu() {
         return this.items;

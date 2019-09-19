@@ -17,6 +17,8 @@
                 </v-col>
             </v-row>
         </v-container>
+
+        <BottomNavigation></BottomNavigation>
     </div>
 </template>
 
@@ -26,6 +28,7 @@ import Header from './../shared/Header/Header.vue';
 import Calender from './Calendar.vue';
 import Subject from './Subject.vue';
 import Lessons from './Lessons.vue';
+import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue';
 import { ICalendar, ISubject, ILessonSave } from './model/types';
 
 @Component({
@@ -34,6 +37,7 @@ import { ICalendar, ISubject, ILessonSave } from './model/types';
         Calender,
         Subject,
         Lessons,
+        BottomNavigation,
     },
 })
 export default class Home extends Vue {

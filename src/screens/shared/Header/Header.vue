@@ -12,7 +12,7 @@
 
                 <v-list>
                     <v-list-item link>
-                        <router-link to="/study-system-with-vue/home/myaccount">
+                        <router-link to="/study-system-with-vue/myaccount">
                             <v-list-item-title>My account</v-list-item-title>
                         </router-link>
                     </v-list-item>
@@ -30,6 +30,7 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import Navigation from './../Navigation/Navigation.vue';
 import { logout } from './../../../auth';
+import navigationItems from './assets/navigation.json';
 @Component({
     components: {
         Navigation,
@@ -37,7 +38,7 @@ import { logout } from './../../../auth';
 })
 export default class Header extends Vue {
     private drawer = false;
-    private items = [{ title: 'Home', icon: 'mdi-home'}, { title: 'Disciplinas', icon: 'mdi-home'}, { title: 'Vestibulares', icon: 'mdi-home'}, { title: 'Reforço escolar', icon: 'mdi-study'}, { title: 'Quem somos', icon: 'mdi-account'}];
+    private items = navigationItems.items;
 
     private state(value: boolean) {
         console.log(value);
