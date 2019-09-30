@@ -6,7 +6,7 @@
             </v-list-item-avatar>
 
             <v-list-item-content>
-                <v-list-item-title>Marlon</v-list-item-title>
+                <v-list-item-title>{{ title }}</v-list-item-title>
             </v-list-item-content>
         </v-list-item>
 
@@ -38,6 +38,7 @@ interface IItem {
 export default class Navigation extends Vue {
     @Prop(Boolean) public drawer = false;
     @Prop() public items!: IItem[];
+    @Prop() public title!: string;
 
     private changePage(page: string) {
         this.$router.push(`/study-system-with-vue/${this.tratamentSelectPage(page)}`);

@@ -31,8 +31,6 @@ export default class Form extends Vue {
     @Emit()
     private login() {
         const body = this.form;
-        this.form = new Login();
-
         return body;
     }
 

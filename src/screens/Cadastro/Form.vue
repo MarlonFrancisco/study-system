@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Emit, Vue } from 'vue-property-decorator';
+import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import Cadastro from './model/Cadastro';
 
 @Component

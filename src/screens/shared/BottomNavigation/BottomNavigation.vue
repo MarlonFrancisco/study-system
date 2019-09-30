@@ -24,7 +24,7 @@ import { Component, Vue } from 'vue-property-decorator';
 export default class BottomNavigation extends Vue {
     private selectMode(mode: string) {
         if (mode === 'youtube') {
-            window.open('https://www.youtube.com.br', '_black')
+            window.open('https://www.youtube.com.br', '_black');
         } else if (mode === 'notas') {
             return;
         }

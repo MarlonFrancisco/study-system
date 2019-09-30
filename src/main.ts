@@ -3,8 +3,10 @@ import App from './App.vue';
 import vuetify from './plugins/vuetify';
 import VueRouter from 'vue-router';
 import { routes } from './routes';
+import Toasted from 'vue-toasted';
 
 Vue.use(VueRouter);
+Vue.use(Toasted);
 
 const router = new VueRouter({
     mode: 'history',

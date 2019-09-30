@@ -2,7 +2,7 @@
     <v-container fluid fill-height>
         <v-row align="center" justify="center">
             <v-col xs="12" md="7" cols="12">
-                <v-card class="mx-auto" width="100%" height="410px" elevation="1">
+                <v-card class="mx-auto" width="100%" height="410px" elevation="1" :loading="loading">
                     <v-row height="100%" style="height: 100%;">
                         <v-col xs="12" md="6" cols="12">                    
                             <v-card-title class="display-title">Empresa</v-card-title>
@@ -23,6 +23,9 @@
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import Form from './Form.vue';
 import ForgotPassword from './ForgotPassword.vue';
+import api from '../../service/api';
+import { ILogin } from '../../typings/login';
+import { login } from '../../auth';
 
 @Component({
     components: {
@@ -32,9 +35,23 @@ import ForgotPassword from './ForgotPassword.vue';
 })
 export default class Login extends Vue {
     public stateForgotPassword = false;
+    private loading = false;
     private async save(body: Login) {
-        console.log(body);
-        this.$router.push('/study-system-with-vue/home');
+        this.loading = true;
+        try {
+            const res = await api.post<ILogin>('/auth/login', body);
+            this.loading = false;
+            this.$toasted.show('Login realizado com sucesso!', {
+                duration: 2000,
+            });
+            login(res.data.token);
+            this.$router.push('/study-system-with-vue/home');
+        } catch (err) {
+            this.loading = false;
+            this.$toasted.show('Usuario não encontrado!', {
+                duration: 2000,
+            });
+        }
     }
 
     private async recover(body: string) {

@@ -22,7 +22,7 @@
                 </v-list>
             </v-menu>
         </v-app-bar>
-        <Navigation :drawer="drawer" :items="items" @closeNavigation="state"></Navigation>
+        <Navigation :drawer="drawer" :items="items" @closeNavigation="state" :title="name"></Navigation>
     </div>
 </template>
 
@@ -31,6 +31,8 @@ import { Component, Vue, Watch } from 'vue-property-decorator';
 import Navigation from './../Navigation/Navigation.vue';
 import { logout } from './../../../auth';
 import navigationItems from './assets/navigation.json';
+import api from '../../../service/api';
+import { IUser } from '../../../typings/login';
 @Component({
     components: {
         Navigation,
@@ -39,6 +41,17 @@ import navigationItems from './assets/navigation.json';
 export default class Header extends Vue {
     private drawer = false;
     private items = navigationItems.items;
+    private name = '';
+
+    public async created() {
+        try {
+            const res = await api.get<IUser>('/user');
+
+            this.name = res.data.name;
+        } catch (err) {
+
+        }
+    }
 
     private state(value: boolean) {
         console.log(value);
