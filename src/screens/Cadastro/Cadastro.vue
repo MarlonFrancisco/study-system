@@ -22,7 +22,7 @@
 import { Component, Vue } from 'vue-property-decorator';
 import Form from './Form.vue';
 import './model/Cadastro';
-import  api from './../../service/api';
+import api from './../../service/api';
 import { login } from '../../auth';
 import { ILogin } from './../../typings/login';
 
@@ -56,7 +56,6 @@ export default class Cadastro extends Vue {
             const res = await api.post<ILogin>('/auth/create', body);
 
             login(res.data.token);
-            console.log(res);
 
             this.loading = false;
             this.$toasted.show('Conta cadastrada com sucesso', {

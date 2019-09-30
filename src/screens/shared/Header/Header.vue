@@ -49,7 +49,7 @@ export default class Header extends Vue {
 
             this.name = res.data.name;
         } catch (err) {
-
+            this.$router.push('/study-system-with-vue');
         }
     }
 
