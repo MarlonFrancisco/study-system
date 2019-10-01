@@ -5,6 +5,7 @@
         value="value"
         active.sync="value"
         color="teal"
+        class="navigation"
     >
         <v-btn dark @click="selectMode('youtube')">
             <span>Abrir Youtube</span>
@@ -31,3 +32,11 @@ export default class BottomNavigation extends Vue {
     }
 }
 </script>
+
+<style lang="scss" scoped>
+    @media (max-width: 468px) {
+        .navigation {
+            display: none;
+        }
+    }
+</style>

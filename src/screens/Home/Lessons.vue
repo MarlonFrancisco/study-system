@@ -3,7 +3,7 @@
         <v-card-title class="subtitle-1">Lições salvas</v-card-title>
         <v-divider></v-divider>
         <v-card-text>
-            <v-list>
+            <v-list v-if="items.length">
                 <v-list-item link v-for="(item, index) of items" :key="index">
                     <v-list-item-icon>
                         <v-img :src="item.icon"></v-img>
@@ -15,13 +15,14 @@
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
+            <v-card-text v-else>Nenhuma lição salva</v-card-text>
         </v-card-text>
     </v-card>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { ILessonSave } from './model/types';
+import { ILessonSave } from './../../typings/lesson';
 
 @Component
 export default class Subject extends Vue {

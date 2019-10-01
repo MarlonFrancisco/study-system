@@ -29,7 +29,11 @@ import Calender from './Calendar.vue';
 import Subject from './Subject.vue';
 import Lessons from './Lessons.vue';
 import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue';
-import { ICalendar, ISubject, ILessonSave } from './model/types';
+import api from '../../service/api';
+import { IUser } from '../../typings/login';
+import { ICalendar } from './../../typings/calendar';
+import { ILessonSave } from './../../typings/lesson';
+import { ISubjects } from './../../typings/subsject';
 
 @Component({
     components: {
@@ -44,17 +48,16 @@ export default class Home extends Vue {
     private calendar: ICalendar[] = [{
         name: 'Enem',
         date: new Date().toLocaleDateString(),
-        icon: 'https://api.adorable.io/avatars/50/marlon.nascimento2@etec.sp.gov.br.png',
     }];
-    private subject: ISubject[] = [{
-        name: 'Matematica',
-        icon: 'https://api.adorable.io/avatars/50/matematica.png',
-    }];
-    private lessonsSave: ILessonSave[] = [{
-        name: 'Pitagoras',
-        save: new Date().toLocaleDateString(),
-        icon: 'https://api.adorable.io/avatars/50/pitagoras.png',
-    }];
+    private subject: string[] = [];
+    private lessonsSave: ILessonSave[] = [];
+
+    public async created() {
+        const res = await api.get<IUser>('/user');
+
+        this.subject.push(...res.data.subjects);
+        this.lessonsSave.push(...res.data.lessons);
+    }
 }
 </script>
 

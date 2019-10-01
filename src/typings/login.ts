@@ -1,3 +1,5 @@
+import { ILessonSave } from './lesson';
+
 export interface ILogin {
     token: string;
     user: IUser;
@@ -5,7 +7,7 @@ export interface ILogin {
 
 export interface IUser {
     subjects: string[];
-    lessons: string[];
+    lessons: ILessonSave[];
     _id: string;
     name: string;
     email: string;

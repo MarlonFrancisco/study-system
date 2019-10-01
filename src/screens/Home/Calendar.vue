@@ -10,7 +10,7 @@
             <v-list>
                 <v-list-item v-for="(item, index) of items" :key="index" link>
                     <v-list-item-icon>
-                        <v-img :src="item.icon"></v-img>
+                        <v-img :src="`https://api.adorable.io/avatars/50/${item.name}.png`"></v-img>
                     </v-list-item-icon>
                     <v-list-item-content>
                         <v-list-item-title>{{ item.name }}</v-list-item-title>
@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from 'vue-property-decorator';
-import { ICalendar } from './model/types';
+import { ICalendar } from './../../typings/calendar';
 
 @Component
 export default class Calendar extends Vue {
