@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mt-10">
+    <v-card class="mt-10" loading="true">
         <v-card-title class="subtitle-1">Lições salvas</v-card-title>
         <v-divider></v-divider>
         <v-card-text>
@@ -27,6 +27,7 @@ import { ILessonSave } from './../../typings/lesson';
 @Component
 export default class Subject extends Vue {
     @Prop() public items!: ILessonSave[];
+    @Prop() public load = false;
 }
 </script>
 

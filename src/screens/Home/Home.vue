@@ -5,15 +5,15 @@
         <v-container fluid fill-height>
             <v-row>
                 <v-col xs="12" md="4">
-                    <Calender :items="calendar"></Calender>
+                    <Calender :items="calendar" :load="loading"></Calender>
                 </v-col>
 
                 <v-col xs="12" md="4">
-                    <Subject :items="subject"></Subject>
+                    <Subject :items="subject" :load="loading"></Subject>
                 </v-col>
 
                 <v-col xs="12" md="4">
-                    <Lessons :items="lessonsSave"></Lessons>
+                    <Lessons :items="lessonsSave" :load="loading"></Lessons>
                 </v-col>
             </v-row>
         </v-container>
@@ -51,12 +51,14 @@ export default class Home extends Vue {
     }];
     private subject: string[] = [];
     private lessonsSave: ILessonSave[] = [];
-
+    private loading = false;
     public async created() {
+        this.loading = true;
         const res = await api.get<IUser>('/user');
 
         this.subject.push(...res.data.subjects);
         this.lessonsSave.push(...res.data.lessons);
+        this.loading = false;
     }
 }
 </script>

@@ -54,6 +54,7 @@ export default class Cadastro extends Vue {
 
         try {
             const res = await api.post<ILogin>('/auth/create', body);
+            console.log(body);
 
             login(res.data.token);
 

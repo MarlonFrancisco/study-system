@@ -46,6 +46,7 @@ export default class Header extends Vue {
     public async created() {
         try {
             const res = await api.get<IUser>('/user');
+            console.log(res);
 
             this.name = res.data.name;
         } catch (err) {

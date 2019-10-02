@@ -1,8 +1,9 @@
 {
     "items": [
         { "title": "Home", "icon": "mdi-home"}, 
-        { "title": "Disciplinas", "icon": "mdi-bag-personal-outline"}, 
+        { "title": "Reforço escolar", "icon": "mdi-bag-personal-outline"}, 
         { "title": "Vestibulares", "icon": "mdi-book-open-page-variant"},
-        { "title": "Quem somos", "icon": "mdi-account"}
+        { "title": "Quem somos", "icon": "mdi-account"},
+        { "title": "Fale conosco", "icon": "mdi-message"}
     ]
 }
