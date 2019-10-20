@@ -70,8 +70,7 @@ export default class Exams extends Vue {
         return parseInt(this.date.match(/\-(..?)\-/)![1], 10) - 1;
     }
 
-    private captureEvents(events) {
-        console.log(JSON.parse(events));
+    private captureEvents(events: string) {
         this.events = JSON.parse(events);
     }
 }

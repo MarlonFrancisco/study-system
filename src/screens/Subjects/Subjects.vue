@@ -32,6 +32,7 @@ import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue'
 import Header from './../shared/Header/Header.vue';
 import subjects from './assets/subjects.json';
 import api from '../../service/api';
+import {ISubjects} from './../../typings/subsject';
 @Component({
     components: {
         Header,
@@ -46,7 +47,7 @@ export default class Subjects extends Vue {
     public async created() {
         this.loading = true;
         const subject = await api.get('/subject');
-        this.saves = subject.data.map((data) => data.name);
+        this.saves = subject.data.map((data: ISubjects) => data.name);
         this.loading = false;
     }
 
@@ -72,7 +73,7 @@ export default class Subjects extends Vue {
                 });
             }
 
-            this.saves = subject.data.map((data) => data.name);
+            this.saves = subject.data.map((data: ISubjects) => data.name);
             this.loading = false;
         } catch (err) {
             this.$toasted.show('Tente novamente!', {

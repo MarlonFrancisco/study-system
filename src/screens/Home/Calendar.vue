@@ -29,7 +29,7 @@ import { ICalendar } from './../../typings/calendar';
 @Component
 export default class Calendar extends Vue {
     @Prop() public items!: ICalendar;
-    @Prop() public load: boolean;
+    @Prop() public load = true;
     private year = new Date().getFullYear();
 }
 </script>

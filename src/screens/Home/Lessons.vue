@@ -27,7 +27,7 @@ import { ILessonSave } from './../../typings/lesson';
 @Component
 export default class Subject extends Vue {
     @Prop() public items!: ILessonSave[];
-    @Prop() public load: boolean;
+    @Prop() public load = true;
 }
 </script>
 

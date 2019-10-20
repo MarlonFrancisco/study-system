@@ -27,7 +27,7 @@ import { ISubjects } from './../../typings/subsject';
 @Component
 export default class Subject extends Vue {
     @Prop() public items!: ISubjects[];
-    @Prop() public load: boolean;
+    @Prop() public load = true;
 }
 </script>
 
