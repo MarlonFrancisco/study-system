@@ -9,9 +9,9 @@
             <v-text-field v-model="form.password" type="password" label="Senha" color="teal"></v-text-field>
         </v-card-text>
         <v-card-actions>
-            <v-btn class="text-none" color="teal" width="30%" @click="save">Criar</v-btn>
+            <v-btn class="text-none white--text" color="teal" width="30%" @click="save">Criar</v-btn>
             <v-btn class="text-none" color="transparent" elevation="0" width="30%">
-                <router-link to="/study-system-with-vue">Cancelar</router-link>
+                <router-link to="/study-system-with-vue" class="teal--text">Cancelar</router-link>
             </v-btn>
         </v-card-actions>
     </div>

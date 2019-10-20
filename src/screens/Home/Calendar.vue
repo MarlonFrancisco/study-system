@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mt-10">
+    <v-card class="mt-10" :loading="load">
         <v-card-title class="subtitle-1">
             Calendario de vestibulares {{ year }}
         </v-card-title>
@@ -29,6 +29,7 @@ import { ICalendar } from './../../typings/calendar';
 @Component
 export default class Calendar extends Vue {
     @Prop() public items!: ICalendar;
+    @Prop() public load: boolean;
     private year = new Date().getFullYear();
 }
 </script>

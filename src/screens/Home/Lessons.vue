@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mt-10" loading="true">
+    <v-card class="mt-10" :loading="load">
         <v-card-title class="subtitle-1">Lições salvas</v-card-title>
         <v-divider></v-divider>
         <v-card-text>
@@ -11,7 +11,7 @@
 
                     <v-list-item-content>
                         <v-list-item-title>{{ item.name }}</v-list-item-title>
-                        <v-list-item-subtitle>{{ item.save }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>{{ item.created }}</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
@@ -27,7 +27,7 @@ import { ILessonSave } from './../../typings/lesson';
 @Component
 export default class Subject extends Vue {
     @Prop() public items!: ILessonSave[];
-    @Prop() public load = false;
+    @Prop() public load: boolean;
 }
 </script>
 

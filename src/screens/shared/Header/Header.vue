@@ -29,7 +29,7 @@
 <script lang="ts">
 import { Component, Vue, Watch } from 'vue-property-decorator';
 import Navigation from './../Navigation/Navigation.vue';
-import { logout } from './../../../auth';
+import { logout } from './../../../helpers/auth';
 import navigationItems from './assets/navigation.json';
 import api from '../../../service/api';
 import { IUser } from '../../../typings/login';

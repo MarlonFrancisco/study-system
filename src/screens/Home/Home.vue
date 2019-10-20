@@ -17,8 +17,6 @@
                 </v-col>
             </v-row>
         </v-container>
-
-        <BottomNavigation></BottomNavigation>
     </div>
 </template>
 

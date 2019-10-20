@@ -1,5 +1,5 @@
 import axios, { AxiosRequestConfig } from 'axios';
-import { isAuth, getToken } from './../auth';
+import { getToken } from '../helpers/auth';
 
 const api = axios.create({
     baseURL: 'https://studytcc.herokuapp.com',

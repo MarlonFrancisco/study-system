@@ -4,8 +4,8 @@
             <v-text-field v-model="email" label="Email" color="teal"></v-text-field>
         </v-card-text>
         <v-card-actions>
-            <v-btn color="teal" width="50%" elevation="1" @click="recovery" class="mx-auto text-none">Enviar</v-btn>
-            <v-btn elevation="0" class="mx-auto text-none" @click="cancel">Cancelar</v-btn>
+            <v-btn color="teal" width="50%" elevation="1" @click="recovery" class="mx-auto text-none white--text">Enviar</v-btn>
+            <v-btn elevation="0" class="mx-auto text-none teal--text" @click="cancel">Cancelar</v-btn>
         </v-card-actions>
     </div>
 </template>

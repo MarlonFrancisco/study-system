@@ -5,12 +5,11 @@
                 <v-card class="mx-auto" width="100%" height="410px" elevation="1" :loading="loading">
                     <v-row height="100%" style="height: 100%;">
                         <v-col xs="12" md="6" cols="12">                    
-                            <v-card-title class="display-title">Empresa</v-card-title>
                             <Form @login="save" v-show="!stateForgotPassword" @recovery="stateForgotPassword = true"></Form>
                             <ForgotPassword v-show="stateForgotPassword" @recovery="recover" @cancel="stateForgotPassword = false"></ForgotPassword>
                         </v-col>
                         <v-col xs="12" md="6" cols="12" class="pb-0 pt-0">
-                            <img src="http://www.profissaoevocacao.com.br/wp-content/uploads/2017/06/estudar-matematica.jpg" width="100%" height="100%"/>                        
+                            <img src="http://s2.glbimg.com/pGuo9YrJ-A1TtSgQaAAL2BfvWxE=/620x465/s.glbimg.com/jo/g1/f/original/2017/05/16/g1educabrasil-pacoteinicial-pauta_3_foto.jpg" width="100%" height="100%"/>                        
                         </v-col>
                     </v-row>
                 </v-card>
@@ -25,7 +24,7 @@ import Form from './Form.vue';
 import ForgotPassword from './ForgotPassword.vue';
 import api from '../../service/api';
 import { ILogin } from '../../typings/login';
-import { login } from '../../auth';
+import { login } from '../../helpers/auth';
 
 @Component({
     components: {

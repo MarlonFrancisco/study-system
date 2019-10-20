@@ -23,7 +23,7 @@ import { Component, Vue } from 'vue-property-decorator';
 import Form from './Form.vue';
 import './model/Cadastro';
 import api from './../../service/api';
-import { login } from '../../auth';
+import { login } from '../../helpers/auth';
 import { ILogin } from './../../typings/login';
 
 @Component({
