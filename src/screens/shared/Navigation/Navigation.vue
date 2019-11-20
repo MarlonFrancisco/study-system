@@ -1,8 +1,8 @@
 <template>
-    <v-navigation-drawer v-model="stateDrawer" absolute temporary>
+    <v-navigation-drawer v-model="stateDrawer" fixed temporary>
         <v-list-item>
             <v-list-item-avatar>
-                <v-img src="https://randomuser.me/api/portraits/men/78.jpg"></v-img>
+                <v-img src="https://api.adorable.io/avatars/50/usuario.png"></v-img>
             </v-list-item-avatar>
 
             <v-list-item-content>

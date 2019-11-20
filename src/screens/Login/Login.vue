@@ -5,11 +5,12 @@
                 <v-card class="mx-auto" width="100%" height="410px" elevation="1" :loading="loading">
                     <v-row height="100%" style="height: 100%;">
                         <v-col xs="12" md="6" cols="12">                    
-                            <Form @login="save" v-show="!stateForgotPassword" @recovery="stateForgotPassword = true"></Form>
-                            <ForgotPassword v-show="stateForgotPassword" @recovery="recover" @cancel="stateForgotPassword = false"></ForgotPassword>
+                            <Form @login="save" v-show="!stateForgotPassword && !newPassword" @recovery="stateForgotPassword = true"></Form>
+                            <ForgotPassword v-show="stateForgotPassword && !newPassword" @recovery="recover" @cancel="stateForgotPassword = false"></ForgotPassword>
+                            <NewPassword v-show="!stateForgotPassword && newPassword" @cancel="newPassword = $event"></NewPassword>
                         </v-col>
                         <v-col xs="12" md="6" cols="12" class="pb-0 pt-0">
-                            <img src="http://s2.glbimg.com/pGuo9YrJ-A1TtSgQaAAL2BfvWxE=/620x465/s.glbimg.com/jo/g1/f/original/2017/05/16/g1educabrasil-pacoteinicial-pauta_3_foto.jpg" width="100%" height="100%"/>                        
+                            <img src="https://static.biggylabs.com.br/images/clientes/valisere/img/home.jpg" width="100%" height="100%"/>                        
                         </v-col>
                     </v-row>
                 </v-card>
@@ -25,36 +26,55 @@ import ForgotPassword from './ForgotPassword.vue';
 import api from '../../service/api';
 import { ILogin } from '../../typings/login';
 import { login } from '../../helpers/auth';
+import Toast from './../../helpers/Toast';
+import NewPassword from './NewPassword.vue';
 
 @Component({
     components: {
         Form,
         ForgotPassword,
+        NewPassword,
     },
 })
 export default class Login extends Vue {
-    public stateForgotPassword = false;
+    private stateForgotPassword = false;
     private loading = false;
+    private newPassword = false;
+
+    public created() {
+        const token = this.$router.currentRoute.query.token;
+
+        if (token) {
+            this.newPassword = true;
+        }
+    }
+
     private async save(body: Login) {
         this.loading = true;
         try {
             const res = await api.post<ILogin>('/auth/login', body);
             this.loading = false;
-            this.$toasted.show('Login realizado com sucesso!', {
-                duration: 2000,
-            });
+            Toast.success('Login realizado com sucesso!', this);
             login(res.data.token);
             this.$router.push('/study-system-with-vue/home');
         } catch (err) {
             this.loading = false;
-            this.$toasted.show('Usuario não encontrado!', {
-                duration: 2000,
-            });
+            Toast.error('Usuario não encontrado!', this);
         }
     }
 
-    private async recover(body: string) {
-        console.log(body);
+    private async recover(email: string) {
+        this.stateForgotPassword = false;
+        this.loading = true;
+        try {
+            const res = await api.post('/recovery/password/new', { email });
+
+            Toast.success('Enviamos um email para você (:', this);
+            this.loading = false;
+        } catch (err) {
+            Toast.error('Usuario não encontrado!', this);
+            this.loading = false;
+        }
     }
 }
 </script>

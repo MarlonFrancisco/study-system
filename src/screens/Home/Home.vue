@@ -1,23 +1,24 @@
 <template>
-    <div>
-        <Header></Header>
+  <div>
+    <Header></Header>
+    <v-content>
+      <v-container fill-height>
+        <v-row>
+          <v-col xs="12" md="4">
+            <Calender :items="calendar" :load="loading"></Calender>
+          </v-col>
 
-        <v-container fluid fill-height>
-            <v-row>
-                <v-col xs="12" md="4">
-                    <Calender :items="calendar" :load="loading"></Calender>
-                </v-col>
+          <v-col xs="12" md="4">
+            <Subject :items="subject" :load="loading"></Subject>
+          </v-col>
 
-                <v-col xs="12" md="4">
-                    <Subject :items="subject" :load="loading"></Subject>
-                </v-col>
-
-                <v-col xs="12" md="4">
-                    <Lessons :items="lessonsSave" :load="loading"></Lessons>
-                </v-col>
-            </v-row>
-        </v-container>
-    </div>
+          <v-col xs="12" md="4">
+            <Lessons :items="lessonsSave" :load="loading"></Lessons>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+  </div>
 </template>
 
 <script lang="ts">
@@ -34,33 +35,34 @@ import { ILessonSave } from './../../typings/lesson';
 import { ISubjects } from './../../typings/subsject';
 
 @Component({
-    components: {
-        Header,
-        Calender,
-        Subject,
-        Lessons,
-        BottomNavigation,
-    },
+  components: {
+    Header,
+    Calender,
+    Subject,
+    Lessons,
+    BottomNavigation,
+  },
 })
 export default class Home extends Vue {
-    private calendar: ICalendar[] = [{
-        name: 'Enem',
-        date: new Date().toLocaleDateString(),
-    }];
-    private subject: string[] = [];
-    private lessonsSave: ILessonSave[] = [];
-    private loading = false;
-    public async created() {
-        this.loading = true;
-        const res = await api.get<IUser>('/user');
+  private calendar: ICalendar[] = [
+    {
+      name: 'Enem',
+      date: new Date().toLocaleDateString(),
+    },
+  ];
+  private subject: string[] = [];
+  private lessonsSave: ILessonSave[] = [];
+  private loading = false;
+  public async created() {
+    this.loading = true;
+    const res = await api.get<IUser>('/user');
 
-        this.subject.push(...res.data.subjects);
-        this.lessonsSave.push(...res.data.lessons);
-        this.loading = false;
-    }
+    this.subject.push(...res.data.subjects);
+    this.lessonsSave.push(...res.data.lessons);
+    this.loading = false;
+  }
 }
 </script>
 
 <style>
-
 </style>

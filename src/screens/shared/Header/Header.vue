@@ -1,6 +1,6 @@
 <template>
     <div>
-        <v-app-bar app dense color="teal" elevation="1" style="justify-content: space-around">
+        <v-app-bar app dense color="teal" elevation="1">
             <v-app-bar-nav-icon color="white" @click="drawer = !drawer"></v-app-bar-nav-icon>
             
             <v-menu bottom left>
@@ -46,8 +46,6 @@ export default class Header extends Vue {
     public async created() {
         try {
             const res = await api.get<IUser>('/user');
-            console.log(res);
-
             this.name = res.data.name;
         } catch (err) {
             this.$router.push('/study-system-with-vue');
@@ -55,7 +53,7 @@ export default class Header extends Vue {
     }
 
     private state(value: boolean) {
-        console.log(value);
+        return;
     }
 
     private endSession() {

@@ -34,8 +34,8 @@ const captureDaysInMonth = (month: number): number => {
 const determineDaysForStudyPerMatter = (
     dificulties: string[],
     matters: IMatter[],
+    hours: number,
 ): IMattersAndHours[][] => {
-    const hours = 24;
     const informations = [];
     for (let month = 1; month <= 12; month++) {
         const hoursAvailableForStudy = dificulties.length
@@ -69,10 +69,12 @@ const determineDaysForStudyPerMatter = (
 const selectDatePerMatter = (
     dificulties: string[],
     matters: IMatter[],
+    hoursForStudy: number,
 ): IEvent[] => {
     const mattersAndHours = determineDaysForStudyPerMatter(
         dificulties,
         matters,
+        hoursForStudy,
     );
     const informations: IEvent[] = [];
     let currentDate = 1;

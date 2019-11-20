@@ -16,8 +16,7 @@ import Login from './model/Login';
 
 @Component
 export default class EsqueceuSenha extends Vue {
-    @Prop(String) public email!: string;
-
+    private email = '';
     @Emit()
     private recovery(body: string) {
         return this.email;

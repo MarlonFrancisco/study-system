@@ -1,4 +1,3 @@
 module.exports = {
-    publicPath: '/study-system-with-vue',
-    lintOnSave: true,
+    publicPath: '/study-system-with-vue'
 }

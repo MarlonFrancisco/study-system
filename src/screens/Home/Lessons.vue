@@ -1,5 +1,5 @@
 <template>
-    <v-card class="mt-10" :loading="load">
+    <v-card :loading="load">
         <v-card-title class="subtitle-1">Lições salvas</v-card-title>
         <v-divider></v-divider>
         <v-card-text>

@@ -8,7 +8,7 @@
                             <Form @save="realizeSave"></Form>
                         </v-col>
                         <v-col xs="12" md="6" cols="12" class="pb-0 pt-0">
-                            <img src="http://www.profissaoevocacao.com.br/wp-content/uploads/2017/06/estudar-matematica.jpg" width="100%" height="100%"/>                        
+                            <img src="https://static.biggylabs.com.br/images/clientes/valisere/img/home.jpg" width="100%" height="100%"/>                        
                         </v-col>
                     </v-row>
                 </v-card>
@@ -54,10 +54,7 @@ export default class Cadastro extends Vue {
 
         try {
             const res = await api.post<ILogin>('/auth/create', body);
-            console.log(body);
-
             login(res.data.token);
-
             this.loading = false;
             this.$toasted.show('Conta cadastrada com sucesso', {
                 duration: 2000,

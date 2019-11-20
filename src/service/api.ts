@@ -7,7 +7,7 @@ const api = axios.create({
 
 api.interceptors.request.use((config: AxiosRequestConfig) => {
     const token = getToken();
-    if (token) {
+    if (token && config.url && !config.url.includes('/recovery')) {
         config.headers.authorization = token;
     }
 

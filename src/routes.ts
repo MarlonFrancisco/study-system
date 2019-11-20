@@ -6,6 +6,8 @@ import MyAccount from './screens/MyAccount/MyAccount.vue';
 import Subjects from './screens/Subjects/Subjects.vue';
 import Exams from './screens/Exams/Exams.vue';
 import WhoAre from './screens/WhoAre/WhoAre.vue';
+import Ensino from './screens/Ensino/Ensino.vue';
+import Lessons from './screens/Lessons/Lessons.vue';
 
 export const routes = [
     {
@@ -29,8 +31,8 @@ export const routes = [
         meta: { authRequired: true },
     },
     {
-        path: '/study-system-with-vue/reforçoescolar',
-        component: Subjects,
+        path: '/study-system-with-vue/ensino',
+        component: Ensino,
         meta: { authRequired: true },
     },
     {
@@ -41,6 +43,16 @@ export const routes = [
     {
         path: '/study-system-with-vue/quemsomos',
         component: WhoAre,
+        meta: { authRequired: true },
+    },
+    {
+        path: '/study-system-with-vue/materias',
+        component: Subjects,
+        meta: { authRequired: true },
+    },
+    {
+        path: '/study-system-with-vue/lessons',
+        component: Lessons,
         meta: { authRequired: true },
     },
     {

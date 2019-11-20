@@ -7,6 +7,7 @@ import Toasted from 'vue-toasted';
 
 Vue.use(VueRouter);
 Vue.use(Toasted);
+Vue.use(vuetify);
 
 const router = new VueRouter({
     mode: 'history',
