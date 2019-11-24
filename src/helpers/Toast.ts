@@ -10,4 +10,10 @@ export default class Toast {
             duration,
         });
     }
+
+    public static info(message: string, context: any, duration: number = 2000): void {
+        context.$toasted.info(message, {
+            duration,
+        });
+    }
 }

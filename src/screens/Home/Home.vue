@@ -27,7 +27,6 @@ import Header from './../shared/Header/Header.vue';
 import Calender from './Calendar.vue';
 import Subject from './Subject.vue';
 import Lessons from './Lessons.vue';
-import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue';
 import api from '../../service/api';
 import { IUser } from '../../typings/login';
 import { ICalendar } from './../../typings/calendar';
@@ -40,7 +39,6 @@ import { ISubjects } from './../../typings/subsject';
     Calender,
     Subject,
     Lessons,
-    BottomNavigation,
   },
 })
 export default class Home extends Vue {
@@ -59,6 +57,8 @@ export default class Home extends Vue {
 
     this.subject.push(...res.data.subjects);
     this.lessonsSave.push(...res.data.lessons);
+
+    console.log(this.lessonsSave);
     this.loading = false;
   }
 }

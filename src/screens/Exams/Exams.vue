@@ -15,7 +15,7 @@
               <v-btn small elevation="0" style="background: transparent;">
                 <v-toolbar-title>{{getMonth()}}</v-toolbar-title>
               </v-btn>
-              <v-calendar type="month" :value="date" event-color="teal" :events="events"></v-calendar>
+              <v-calendar type="month" ref="calendar" :value="date" event-color="teal" :events="events"></v-calendar>
             </v-sheet>
           </v-col>
         </v-row>
@@ -28,14 +28,13 @@
         </v-row>
       </v-container>
 
-      <Form @updateCalendar="captureEvents($event)"></Form>
+      <Form @updateCalendar="captureEvents($event)" :load="loading"></Form>
     </v-content>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue';
 import Header from './../shared/Header/Header.vue';
 import Form from './Form.vue';
 import api from '../../service/api';
@@ -44,11 +43,11 @@ import Toast from '../../helpers/Toast';
 @Component({
   components: {
     Header,
-    BottomNavigation,
     Form,
   },
 })
 export default class Exams extends Vue {
+  private loading = false;
   private events = [];
   private months = [
     'Janeiro',
@@ -88,6 +87,7 @@ export default class Exams extends Vue {
   }
 
   private async savePlan() {
+    this.loading = true;
     try {
       await api.post('/studyplan', { plan: JSON.stringify(this.events) });
 
@@ -95,6 +95,7 @@ export default class Exams extends Vue {
     } catch (err) {
       Toast.error('Tivemos um problema, tente novamente!', this);
     }
+    this.loading = false;
   }
 }
 </script>

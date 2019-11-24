@@ -41,6 +41,7 @@ const determineDaysForStudyPerMatter = (
         const hoursAvailableForStudy = dificulties.length
             ? captureDaysInMonth(month) * hours * 0.8
             : captureDaysInMonth(month) * hours;
+
         const hoursReforceMatters = captureDaysInMonth(month) * hours * 0.2;
 
         const availableStudy = hoursAvailableForStudy / matters.length;
@@ -63,6 +64,7 @@ const determineDaysForStudyPerMatter = (
             }),
         );
     }
+
     return informations;
 };
 
@@ -77,28 +79,54 @@ const selectDatePerMatter = (
         hoursForStudy,
     );
     const informations: IEvent[] = [];
-    let currentDate = 1;
+    const currentDate = 0;
     mattersAndHours.map((matterAndHour, index) => {
-        matterAndHour.map((matter) => {
-            const initDate = currentDate;
-            const nextCurrentDate = currentDate + matter.days;
-            currentDate = nextCurrentDate;
-            informations.push({
-                name: matter.subject,
-                start: `${new Date().getFullYear()}-${index + 1}-${parseInt(
-                    initDate.toString(),
-                    10,
-                )}`,
-                end: `${new Date().getFullYear()}-${index + 1}-${parseInt(
-                    nextCurrentDate.toString(),
-                    10,
-                ) - 1}`,
-            });
-        });
+        const currentMonth = index + 1;
+        const daysAvailable = availableDaysInArray(currentMonth);
+        matterAndHour.map((matter, indexT) => {
+            for (let c = 1; c < Math.ceil(mattersAndHours[index][indexT].days); c++) {
+                const initDate =
+                    daysAvailable[
+                        numberOnlyAvailable(daysAvailable.length - 1)
+                    ];
+                const nextCurrentDate = initDate + 1;
 
-        currentDate = 1;
+                daysAvailable.splice(daysAvailable.indexOf(initDate), 1);
+
+                console.table(
+                    initDate,
+                    nextCurrentDate,
+                    daysAvailable,
+                    nextCurrentDate - initDate,
+                );
+                informations.push({
+                    name: matter.subject,
+                    start: `${new Date().getFullYear()}-${currentMonth}-${parseInt(
+                        initDate.toString(),
+                        10,
+                    )}`,
+                    end: `${new Date().getFullYear()}-${currentMonth}-${parseInt(
+                        nextCurrentDate.toString(),
+                        10,
+                    ) - 1}`,
+                });
+            }
+        });
     });
 
+    console.log(mattersAndHours);
     return informations;
+};
+
+const numberOnlyAvailable = (width: number): number => {
+    return Math.floor(Math.random() * width);
+};
+
+const availableDaysInArray = (month: number): number[] => {
+    const availableDays: number[] = [];
+    for (let c = 1; c <= captureDaysInMonth(month); c++) {
+        availableDays.push(c);
+    }
+    return availableDays;
 };
 export default selectDatePerMatter;

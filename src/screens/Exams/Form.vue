@@ -1,31 +1,56 @@
 <template>
   <v-container>
     <v-row>
-      <v-col>Minhas dificuldades</v-col>
-    </v-row>
-    <v-row>
-      <v-col v-for="(items, index) of matters" :key="index">
-        <v-checkbox v-model="selected" :label="items.name" :value="items.name"></v-checkbox>
-      </v-col>
-    </v-row>
-    <v-row>
       <v-col>
-        <v-text-field
-          v-model="hoursForStudy"
-          placeholder="Numero de horas para estudo diario"
-          color="teal"
-        ></v-text-field>
-      </v-col>
-    </v-row>
-    <v-row>
-      <v-col>
-        <v-btn :loading="load" color="teal" class="white--text" @click="updatePlanStudy()">Criar</v-btn>
-        <v-btn
-          :loading="load"
-          color="teal"
-          class="white--text ml-3"
-          @click="loadPlan()"
-        >Carregar ultimo plano salvo</v-btn>
+        <v-card class="mx-auto" max-width="500" :loading="load">
+          <v-card-title class="title font-weight-regular justify-space-between">
+            <span></span>
+            <v-avatar color="teal lighten-2" class="subheading white--text" size="24" v-text="step"></v-avatar>
+          </v-card-title>
+
+          <v-window v-model="step">
+            <v-window-item :value="1">
+              <v-subheader class="gray--text">Minhas dificuldades</v-subheader>
+              <v-card-text>
+                <v-checkbox
+                  color="teal"
+                  v-for="(items, index) of matters"
+                  class="d-inline-block pa-2"
+                  :key="index"
+                  v-model="selected"
+                  :label="items.name"
+                  :value="items.name"
+                ></v-checkbox>
+              </v-card-text>
+            </v-window-item>
+          </v-window>
+
+          <v-divider></v-divider>
+
+          <v-card-actions>
+            <v-btn :disabled="step === 1" text @click="step--" icon>
+              <v-icon>mdi-chevron-left</v-icon>
+            </v-btn>
+            <v-spacer></v-spacer>
+            <v-btn :disabled="step === 1" color="teal" depressed @click="step++" icon>
+              <v-icon>mdi-chevron-right</v-icon>
+            </v-btn>
+
+            <v-btn
+              :loading="load"
+              color="teal"
+              class="white--text"
+              :disabled="step < 1"
+              @click="updatePlanStudy()"
+            >Criar</v-btn>
+            <v-btn
+              :loading="load"
+              color="teal"
+              class="white--text ml-3"
+              @click="loadPlan()"
+            >Carregar plano salvo</v-btn>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
@@ -42,8 +67,9 @@ import Toast from '../../helpers/Toast';
 export default class Difficulties extends Vue {
   private selected: string[] = [];
   private matters = subjects.subjects;
-  private load = false;
+  @Prop() private load = false;
   private hoursForStudy = 0;
+  private step = 1;
 
   private updatePlanStudy() {
     this.load = true;
@@ -51,7 +77,7 @@ export default class Difficulties extends Vue {
     setTimeout(() => (this.load = false), 2000);
     this.transferResult(
       JSON.stringify(
-        selectDatePerMatter(this.selected, this.matters, this.hoursForStudy),
+        selectDatePerMatter(this.selected, this.matters, 24),
       ),
     );
   }

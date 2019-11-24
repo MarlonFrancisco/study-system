@@ -33,7 +33,7 @@
                                     <v-icon>mdi-heart</v-icon>
                                 </v-btn>
                                 <router-link
-                                    :to="`/study-system-with-vue/lessons?matter=${item.name}&ensino=${ensino}`"
+                                    :to="`/study-system-with-vue/lessons?materia=${item.name}&ensino=${ensino}`"
                                     style="text-decoration: none"
                                 >
                                     <v-btn icon title="Visualizar"
@@ -51,7 +51,6 @@
 
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
-import BottomNavigation from './../shared/BottomNavigation/BottomNavigation.vue';
 import Header from './../shared/Header/Header.vue';
 import subjects from './assets/subjects.json';
 import api from '../../service/api';
@@ -60,7 +59,6 @@ import Toast from '../../helpers/Toast';
 @Component({
     components: {
         Header,
-        BottomNavigation,
     },
 })
 export default class Subjects extends Vue {

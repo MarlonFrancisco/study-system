@@ -11,7 +11,7 @@
 
         <v-row>
             <v-col>
-                <v-btn color="teal">Salvar</v-btn>
+                <v-btn color="teal" class="white--text">Salvar</v-btn>
             </v-col>
         </v-row>
     </v-container>

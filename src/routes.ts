@@ -8,7 +8,7 @@ import Exams from './screens/Exams/Exams.vue';
 import WhoAre from './screens/WhoAre/WhoAre.vue';
 import Ensino from './screens/Ensino/Ensino.vue';
 import Lessons from './screens/Lessons/Lessons.vue';
-
+import ContactUs from './screens/contactus/ContactUs.vue';
 export const routes = [
     {
         path: '/study-system-with-vue/',
@@ -53,6 +53,11 @@ export const routes = [
     {
         path: '/study-system-with-vue/lessons',
         component: Lessons,
+        meta: { authRequired: true },
+    },
+    {
+        path: '/study-system-with-vue/faleconosco',
+        component: ContactUs,
         meta: { authRequired: true },
     },
     {

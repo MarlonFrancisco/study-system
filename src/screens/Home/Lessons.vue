@@ -6,12 +6,12 @@
             <v-list v-if="items.length">
                 <v-list-item link v-for="(item, index) of items" :key="index">
                     <v-list-item-icon>
-                        <v-img :src="item.icon"></v-img>
+                        <v-img :src="`https://api.adorable.io/avatars/50/${item.name}.png`"></v-img>
                     </v-list-item-icon>
 
                     <v-list-item-content>
                         <v-list-item-title>{{ item.name }}</v-list-item-title>
-                        <v-list-item-subtitle>{{ item.created }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>Lição favoritada em: {{ new Date(item.created).toLocaleDateString() }}</v-list-item-subtitle>
                     </v-list-item-content>
                 </v-list-item>
             </v-list>
