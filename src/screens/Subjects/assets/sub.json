@@ -1,0 +1,96 @@
+{
+    "medio": [
+        {
+            "name": "Matematica",
+            "title": " Materias relacionadas a matematica!",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/matematica.jpg"
+        },
+        {
+            "name": "Português",
+            "title": "Materias relacionadas a português",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/portugues.jpg"
+        },
+        {
+            "name": "Biologia",
+            "title": "Materias relacionadas a Biologia",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/biologia.jpg"
+        },
+        {
+            "name": "Inglês",
+            "title": "Materias relacionadas a Inglês",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/ingles.jpg"
+        },
+        {
+            "name": "Quimíca",
+            "title": "Materias relacionadas a quimica",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/quimica.jpg"
+        },
+        {
+            "name": "Geografia",
+            "title": "Materias relacionadas a geografia",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/geografia.jpg"
+        },
+        {
+            "name": "Filosofia",
+            "title": "Materias relacionadas a filosofia",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/filosofia.jpg"
+        },
+        {
+            "name": "Fisica",
+            "title": "Materias relacionadas a fisica",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/fisica.jpg"
+        },
+        {
+            "name": "História",
+            "title": "Materias relacionadas a História",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/historia.jpg"
+        },
+        {
+            "name": "Artes",
+            "title": "Materias relacionadas a Artes",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/artes.jpg"
+        },
+        {
+            "name": "Educação Física",
+            "title": "Materias relacionadas a Educação Física",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/educacaofisica.jpg"
+        }
+    ],
+    "fundamental": [
+        {
+            "name": "Geografia",
+            "title": "Materias relacionadas a geografia",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/geografia.jpg"
+        },
+        {
+            "name": "Matematica",
+            "title": " Materias relacionadas a matematica!",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/matematica.jpg"
+        },
+        {
+            "name": "Português",
+            "title": "Materias relacionadas a português",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/portugues.jpg"
+        },
+        {
+            "name": "Inglês",
+            "title": "Materias relacionadas a Inglês",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/ingles.jpg"
+        },
+        {
+            "name": "História",
+            "title": "Materias relacionadas a História",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/historia.jpg"
+        },
+        {
+            "name": "Artes",
+            "title": "Materias relacionadas a Artes",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/artes.jpg"
+        },
+        {
+            "name": "Educação Física",
+            "title": "Materias relacionadas a Educação Física",
+            "image": "https://static.biggylabs.com.br/images/clientes/valisere/img/educacaofisica.jpg"
+        }
+    ]
+}
