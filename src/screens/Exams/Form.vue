@@ -66,14 +66,12 @@ import Toast from '../../helpers/Toast';
 @Component
 export default class Difficulties extends Vue {
   private selected: string[] = [];
-  private matters = subjects.subjects;
+  private matters = subjects.subjects.medio;
   @Prop() private load = false;
   private hoursForStudy = 0;
   private step = 1;
 
   private updatePlanStudy() {
-    this.load = true;
-
     setTimeout(() => (this.load = false), 2000);
     this.transferResult(
       JSON.stringify(
@@ -83,7 +81,6 @@ export default class Difficulties extends Vue {
   }
 
   private async loadPlan() {
-    this.load = true;
     try {
       const res = await api.get('/studyplan');
 
@@ -91,7 +88,6 @@ export default class Difficulties extends Vue {
     } catch (err) {
       Toast.error('Ops, tivemos um problema! Tente novamente', this);
     }
-    this.load = false;
   }
 
   @Emit('updateCalendar')

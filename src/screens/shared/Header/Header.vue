@@ -12,8 +12,8 @@
 
                 <v-list>
                     <v-list-item link>
-                        <router-link to="/study-system-with-vue/myaccount">
-                            <v-list-item-title>My account</v-list-item-title>
+                        <router-link style="text-decoration: none" to="/study-system-with-vue/myaccount">
+                            <v-list-item-title class="black--text">My account</v-list-item-title>
                         </router-link>
                     </v-list-item>
                     <v-list-item link @click="endSession">

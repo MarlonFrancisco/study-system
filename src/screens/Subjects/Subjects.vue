@@ -7,7 +7,7 @@
                 <v-row>
                     <v-col v-for="(item, index) of items" :key="index" md="3">
                         <v-card :loading="loading">
-                            <v-img :src="item.image" max-height="165px">
+                            <v-img :src="item.image" max-height="165px" min-height="165px">
                                 <v-card-title
                                     class="align-end fill-height white--text"
                                     >{{ item.name }}</v-card-title
@@ -33,7 +33,7 @@
                                     <v-icon>mdi-heart</v-icon>
                                 </v-btn>
                                 <router-link
-                                    :to="`/study-system-with-vue/lessons?materia=${item.name}&ensino=${ensino}`"
+                                    :to="`/study-system-with-vue/lessons?materia=${item.name}&ensino=${ensino}&serie=${ano}`"
                                     style="text-decoration: none"
                                 >
                                     <v-btn icon title="Visualizar"
@@ -62,14 +62,18 @@ import Toast from '../../helpers/Toast';
     },
 })
 export default class Subjects extends Vue {
-    private items = subjects.subjects;
+    private items = [];
     private loading = false;
     private saves = [];
     private ensino = '';
+    private ano = '';
 
     public async created() {
         this.loading = true;
         this.ensino = this.$router.currentRoute.query.ensino as string;
+
+        this.items = subjects.subjects[this.ensino];
+        this.ano = this.$router.currentRoute.query.ano as string;
         try {
             const subject = await api.get('/subject');
             this.saves = subject.data.map((data: ISubjects) => data.name);

@@ -1,5 +1,5 @@
 <template>
-    <v-card :loading="load">
+    <v-card :loading="load" style="max-height: 500px; overflow-y: auto;">
         <v-card-title class="subtitle-1">
             Calendario de vestibulares {{ year }}
         </v-card-title>
@@ -8,7 +8,7 @@
         
         <v-card-text>
             <v-list>
-                <v-list-item v-for="(item, index) of items" :key="index" link>
+                <v-list-item v-for="(item, index) of items" :key="index" link :title="item.name">
                     <v-list-item-icon>
                         <v-img :src="`https://api.adorable.io/avatars/50/${item.name}.png`"></v-img>
                     </v-list-item-icon>

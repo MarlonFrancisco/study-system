@@ -12,7 +12,7 @@
                           </v-img>
                           <v-card-text>Ensino Fundamental</v-card-text>
                           <v-card-actions>
-                              <router-link style="text-decoration: none;" class="mx-auto" :to="'/study-system-with-vue/materias?&ensino=fundamental'">
+                              <router-link style="text-decoration: none;" class="mx-auto" :to="'/study-system-with-vue/ano?&ensino=fundamental'">
                                 <v-btn class="teal white--text">Entrar</v-btn>
                               </router-link>
                           </v-card-actions>
@@ -25,7 +25,7 @@
                           </v-img>
                           <v-card-text>Ensino Médio</v-card-text>
                           <v-card-actions>
-                              <router-link style="text-decoration: none;" class="mx-auto" :to="'/study-system-with-vue/materias?ensino=medio'">
+                              <router-link style="text-decoration: none;" class="mx-auto" :to="'/study-system-with-vue/ano?ensino=medio'">
                                 <v-btn class="teal white--text mx-auto">Entrar</v-btn>
                               </router-link>
                           </v-card-actions>

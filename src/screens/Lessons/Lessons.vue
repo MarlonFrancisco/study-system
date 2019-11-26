@@ -84,6 +84,7 @@ export interface IContent {
 export default class Lessons extends Vue {
   private matter!: string;
   private ensino!: string;
+  private ano!: string;
   private listItems: any[] = [];
   private contentLesson = '';
   private selectLesson = true;
@@ -91,8 +92,9 @@ export default class Lessons extends Vue {
   private loading = false;
 
   public created() {
-    this.matter = this.$router.currentRoute.query.materia as string;
+    this.matter = (this.$router.currentRoute.query.materia as string).replace('ê', 'e').replace('í', 'i').toLowerCase();
     this.ensino = this.$router.currentRoute.query.ensino as string;
+    this.ano = this.$router.currentRoute.query.serie as string;
     this.request();
   }
 
@@ -100,9 +102,12 @@ export default class Lessons extends Vue {
     this.loading = true;
     try {
       const res = await apiContent.post('/filter', {
-        materia: this.matter.toLowerCase(),
+        materia: this.matter,
         ensino: this.ensino,
+        serie: this.ano,
       });
+
+      console.log(this.matter);
 
       const favorites = await api.get('/lesson');
       this.savesLessons = favorites.data.map((favorite: IFavorite) => favorite.name);

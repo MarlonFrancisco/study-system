@@ -30,8 +30,11 @@
           <div class="pa-4 text-center">
             <h3 class="title font-weight-light mb-2">Você aceita os temos de uso?</h3>
             <v-checkbox v-model="form.useTerms" color="teal" style="display: inline-block"></v-checkbox>
+            <v-btn class="text-none d-block mx-auto" @click="dialog = true">Ler os termos</v-btn>
           </div>
         </v-window-item>
+        
+        <Terms :dialog="dialog" @close="closeDialog()"></Terms>
       </v-window>
 
       <v-divider></v-divider>
@@ -57,26 +60,25 @@
 <script lang="ts">
 import { Component, Emit, Vue, Prop } from 'vue-property-decorator';
 import Cadastro from './model/Cadastro';
+import Terms from './Terms.vue';
 
-@Component
+@Component({
+  components: {
+    Terms,
+  },
+})
 export default class Form extends Vue {
   @Prop(Boolean) private loading!: boolean;
   private step = 1;
+  private dialog = false;
   private form = new Cadastro();
-
-  private currentTitle(): string {
-    switch (this.step) {
-      case 1:
-        return 'Sign-up';
-      case 2:
-        return 'Create a password';
-      default:
-        return 'Account created';
-    }
-  }
 
   private cancel(): void {
     this.$router.push('/study-system-with-vue');
+  }
+
+  private closeDialog() {
+    this.dialog = false;
   }
 
   @Emit()

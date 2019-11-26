@@ -9,6 +9,7 @@ import WhoAre from './screens/WhoAre/WhoAre.vue';
 import Ensino from './screens/Ensino/Ensino.vue';
 import Lessons from './screens/Lessons/Lessons.vue';
 import ContactUs from './screens/contactus/ContactUs.vue';
+import Ano from './screens/Ano/Ano.vue';
 export const routes = [
     {
         path: '/study-system-with-vue/',
@@ -31,9 +32,14 @@ export const routes = [
         meta: { authRequired: true },
     },
     {
-        path: '/study-system-with-vue/ensino',
+        path: '/study-system-with-vue/reforcoescolar',
         component: Ensino,
         meta: { authRequired: true },
+    },
+    {
+      path: '/study-system-with-vue/ano',
+      component: Ano,
+      meta: { authRequired: true },
     },
     {
         path: '/study-system-with-vue/vestibulares',

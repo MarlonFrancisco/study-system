@@ -32,6 +32,7 @@ import { IUser } from '../../typings/login';
 import { ICalendar } from './../../typings/calendar';
 import { ILessonSave } from './../../typings/lesson';
 import { ISubjects } from './../../typings/subsject';
+import CalenderInformations from './assets/calendar.json';
 
 @Component({
   components: {
@@ -43,10 +44,7 @@ import { ISubjects } from './../../typings/subsject';
 })
 export default class Home extends Vue {
   private calendar: ICalendar[] = [
-    {
-      name: 'Enem',
-      date: new Date().toLocaleDateString(),
-    },
+    ...CalenderInformations.data,
   ];
   private subject: string[] = [];
   private lessonsSave: ILessonSave[] = [];
@@ -57,8 +55,6 @@ export default class Home extends Vue {
 
     this.subject.push(...res.data.subjects);
     this.lessonsSave.push(...res.data.lessons);
-
-    console.log(this.lessonsSave);
     this.loading = false;
   }
 }

@@ -45,7 +45,7 @@ export default class Navigation extends Vue {
     }
 
     private tratamentSelectPage(page: string): string {
-        return page.replace(' ', '').toLowerCase();
+        return page.replace(' ', '').replace('ç', 'c').toLowerCase();
     }
 
     get itemsMenu() {

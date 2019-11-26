@@ -1,5 +1,5 @@
 <template>
-    <v-card :loading="load">
+    <v-card :loading="load" style="max-height: 500px; overflow-y: auto;">
         <v-card-title class="subtitle-1">Lições salvas</v-card-title>
         <v-divider></v-divider>
         <v-card-text>
