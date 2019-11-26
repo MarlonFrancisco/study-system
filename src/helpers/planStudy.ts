@@ -113,8 +113,6 @@ const selectDatePerMatter = (
             }
         });
     });
-
-    console.log(mattersAndHours);
     return informations;
 };
 

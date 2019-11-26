@@ -92,7 +92,7 @@ export default class Lessons extends Vue {
   private loading = false;
 
   public created() {
-    this.matter = (this.$router.currentRoute.query.materia as string).replace('ê', 'e').replace('í', 'i').toLowerCase();
+    this.matter = (this.$router.currentRoute.query.materia as string).replace('ê', 'e').replace('í', 'i').replace("ê", "e").toLowerCase();
     this.ensino = this.$router.currentRoute.query.ensino as string;
     this.ano = this.$router.currentRoute.query.serie as string;
     this.request();
@@ -106,8 +106,6 @@ export default class Lessons extends Vue {
         ensino: this.ensino,
         serie: this.ano,
       });
-
-      console.log(this.matter);
 
       const favorites = await api.get('/lesson');
       this.savesLessons = favorites.data.map((favorite: IFavorite) => favorite.name);

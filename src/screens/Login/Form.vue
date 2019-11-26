@@ -1,6 +1,7 @@
 <template>
   <div>
     <v-card-text>
+      <h2 style="font-weight: 300; color: gray">Login</h2>
       <v-text-field v-model="form.email" label="Email" color="teal"></v-text-field>
       <v-text-field v-model="form.password" type="password" label="Senha" color="teal"></v-text-field>
     </v-card-text>
